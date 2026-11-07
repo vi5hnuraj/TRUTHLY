@@ -1,0 +1,118 @@
+# TRUTHLY
+
+TRUTHLY turns source-backed crypto reporting into verified intelligence, a
+five-agent market decision, and an explicitly approved protected order.
+
+## Safety model
+
+- Scout candidates are unpaid discoveries, not filed stories.
+- Invalid evidence is rejected before payment.
+- Herald verifies sources and claims before publication.
+- Reporter news never selects or submits an order.
+- The live Council can only recommend BUY, SELL, or HOLD.
+- Demo Council records are paper-only and cannot enter live execution.
+- Every live order requires a same-story receipt, mandate, exact approval,
+  fresh market integrity, and an executable Council BUY.
+- Decision Quality measures completeness, not profit probability.
+
+## MCP
+
+Streamable HTTP endpoint: `POST /api/mcp`
+
+Tools:
+
+- `truthly_front_page` — public verified-edition preview
+- `truthly_wire` — public wire, quiet beats, and Scout candidates
+- `truthly_file_signal` — `$0.01` x402 story filing
+- `truthly_read_edition` — `$0.05` x402 edition purchase
+- `truthly_read_signal` — `$0.02` story purchase or receipt re-read
+- `truthly_reporter_profile` — public reporter history and payouts
+- `truthly_appeal_status` — public appeal docket
+- `truthly_trade_signal` — protected Council-locked order workflow
+
+Paid tools return the raw x402 challenge first. The client must obtain explicit
+wallet approval and provide the one-time payment signature. TRUTHLY never holds
+the reader's wallet key.
+
+## Public APIs
+
+- `GET /api/status`
+- `GET /api/signals`
+- `GET /api/signals/{id}`
+- `GET /api/signals/{id}/history`
+- `GET /api/editions`
+- `GET /api/editions/{id}`
+- `GET /api/scout/candidates`
+- `GET /api/reporters/{address}`
+- `GET /api/financials`
+- `GET /api/flash/trade`
+- `GET /api/market/eth`
+- `GET /api/market/eth/bars`
+
+## Paid APIs
+
+- `POST /api/x402/signals` — `$0.01` filing stake
+- `GET /api/intel/{signalId}` — `$0.02` complete story intelligence
+- `GET /api/editions/{id}/full` — `$0.05` complete edition
+- `GET /api/editions/latest` — `$0.05` latest complete edition
+
+A successful individual purchase returns `receipt.receipt_id`. Re-read the same
+story with `x-receipt: <receipt_id>`. The receipt is signal-scoped and must belong
+to the mandate's agent or controlling owner before it can authorize a trade.
+
+## Filing shape
+
+`POST /api/x402/signals` accepts:
+
+```json
+{
+  "headline": "...",
+  "body": "...",
+  "beat": "defi",
+  "sources": ["https://...", "https://..."],
+  "source_metadata": [],
+  "claims": [],
+  "tags": [],
+  "world_query": "optional",
+  "tokens": ["ETH"],
+  "reporter_name": "optional"
+}
+```
+
+Every claim must cite submitted sources, every source must support at least one
+claim, and the sources must represent at least two independent owners.
+
+## Live decision
+
+After publication and stake refund, five agents analyze the genuine story and a
+same-notional Definitive/Uniswap snapshot. `/api/flash/trade` exposes bounded
+votes, consensus, provider evidence, exact levels when applicable, and the
+Decision Quality breakdown. Complete rationales remain receipt-gated.
+
+## Live trade request
+
+`POST /api/flash/trade` uses `Authorization: Bearer <mandate>` and:
+
+```json
+{
+  "request_id": "uuid",
+  "signal_id": "uuid",
+  "receipt": "story receipt",
+  "token": "ETH",
+  "side": "buy",
+  "max_spend_usdc": "2",
+  "order_type": "limit",
+  "limit_price_usd": "...",
+  "take_profit_price_usd": "...",
+  "stop_loss_price_usd": "...",
+  "expires_at": "ISO-8601",
+  "rationale": "...",
+  "council_run_id": "uuid",
+  "approved": false,
+  "authorization_id": "optional uuid"
+}
+```
+
+Preview with `approved=false`. Repeat only the exact request after approval.
+Never invent levels, change the request ID, or retry an ambiguous submission as
+a new order.
