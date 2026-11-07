@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   TRUTHLY design system: monochrome editorial, thin grid,
+   mono labels, pill buttons. Light and dark via [data-theme].
+------------------------------------------------------------------- */
+
+:root,
+[data-theme="light"] {
+  --background: #FAFAF7;      /* paper white */
+  --foreground: #131313;      /* near black */
+  --muted: #6E6E68;           /* gray label text */
+  --border: #E4E4DE;          /* hairline separators + grid */
+  --border-strong: #131313;   /* pill outlines, emphasis */
+  --card: #FFFFFF;            /* raised panel */
+  --accent: #E53527;          /* the single red, used sparingly */
+  --accent-soft: rgba(229, 53, 39, 0.08);
+  --grid-line: rgba(19, 19, 19, 0.055);
+  --halo: rgba(19, 19, 19, 0.06);
+}
+
+[data-theme="dark"] {
+  --background: #0C0C0B;
+  --foreground: #F4F4F0;
+  --muted: #8B8B84;
+  --border: #232321;
+  --border-strong: #F4F4F0;
+  --card: #141413;
+  --accent: #FF4B3A;
+  --accent-soft: rgba(255, 75, 58, 0.12);
+  --grid-line: rgba(244, 244, 240, 0.05);
+  --halo: rgba(244, 244, 240, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-soft);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-strong: var(--border-strong);
+  --color-card: var(--card);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-newsreader);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    /* thin blueprint grid over the whole page */
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 88px 88px;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: var(--foreground);
+    color: var(--background);
+  }
+}
+
+/* Texture overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ------------------------------- utilities ------------------------------ */
+
+@layer components {
+  .border-grid {
+    border-color: var(--border);
+  }
+
+  /* pill buttons */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    padding: 0.9rem 1.75rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .pill-solid {
+    background: var(--foreground);
+    color: var(--background);
+  }
+  .pill-solid:hover {
+    opacity: 0.85;
+  }
+  .pill-outline {
+    border: 1px solid var(--border-strong);
+    color: var(--foreground);
+  }
+  .pill-outline:hover {
+    background: var(--foreground);
+    color: var(--background);
+  }
+  .pill-hairline {
+    border: 1px solid var(--border);
+    color: var(--foreground);
+  }
+  .pill-hairline:hover {
+    border-color: var(--border-strong);
+  }
+
+  /* status pill */
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding: 0.5rem 0.9rem;
+    text-transform: uppercase;
+  }
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  /* eyebrow label: "■ HOW A CLAIM WORKS" */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--muted);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--foreground);
+    display: inline-block;
+  }
+
+  /* giant display headline */
+  .display-1 {
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+.blink {
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+/* Article prose styling for edition content (serif kept for long reads) */
+.edition-prose h1, .edition-prose h2, .edition-prose h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.edition-prose h1 { font-size: 2.25rem; }
+.edition-prose h2 { font-size: 1.875rem; }
+.edition-prose h3 { font-size: 1.5rem; }
+
+.edition-prose p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+}
+
+.edition-prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.edition-prose ul, .edition-prose ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.edition-prose li {
+  margin-bottom: 0.5rem;
+}
+
+/* hide scrollbars on stat rows */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

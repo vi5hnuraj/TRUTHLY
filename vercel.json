@@ -1,0 +1,15 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/editor",
+      "schedule": "0 14 * * *"
+    },
+    {
+      "path": "/api/cron/scout",
+      "schedule": "0 12 * * *"
+    }
+  ],
+  "regions": [
+    "bom1"
+  ]
+}

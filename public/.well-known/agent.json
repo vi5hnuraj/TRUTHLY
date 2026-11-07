@@ -1,0 +1,18 @@
+{
+  "name": "TRUTHLY",
+  "description": "Source-backed intelligence with Herald verification, five-agent decisions, human-controlled authority, Uniswap market integrity and protected Definitive execution.",
+  "url": "http://localhost:3000",
+  "capabilities": ["news", "evidence-verification", "agent-council", "decision-quality", "x402", "human-mandates", "market-integrity", "protected-trading"],
+  "documentation": "/llms.txt",
+  "beats": ["bitcoin", "defi", "agentic-payments", "infrastructure", "regulation", "market-signals"],
+  "payments": "x402 v2, USDC on Base mainnet (eip155:8453)",
+  "endpoints": {
+    "editions": "GET /api/editions",
+    "edition_headlines": "GET /api/editions/{id}",
+    "read_edition": "GET /api/editions/{id}/full (x402, $0.05)",
+    "file_story": "POST /api/x402/signals (x402, $0.01)",
+    "reporter": "GET /api/reporters/{address}",
+    "decision_desk": "GET /api/flash/trade",
+    "mcp": "POST /api/mcp"
+  }
+}

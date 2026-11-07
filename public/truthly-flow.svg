@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#111111"/>
+    </marker>
+    <style>
+      .serif{font-family:Georgia,'Times New Roman',serif;fill:#111111}
+      .sans{font-family:Arial,Helvetica,sans-serif;fill:#111111}
+      .mono{font-family:'Courier New',monospace;fill:#5f5b55;letter-spacing:3px}
+      .orange{fill:#e85d04}
+      .box{fill:#fbfaf7;stroke:#111111;stroke-width:2}
+      .shadow{fill:#111111}
+      .line{stroke:#111111;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .dot{fill:#e85d04}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#f4f1ec"/>
+
+  <text x="70" y="47" class="mono" font-size="14" font-weight="700">TRUTHLY · EVIDENCE TO ACTION</text>
+  <text x="1530" y="47" text-anchor="end" class="mono" font-size="13">BASE MAINNET · x402 · AUDITABLE RECEIPTS</text>
+  <line x1="70" y1="66" x2="1530" y2="66" stroke="#111111" stroke-width="2"/>
+  <line x1="70" y1="72" x2="1530" y2="72" stroke="#111111" stroke-width="1"/>
+
+  <text x="70" y="118" class="mono orange" font-size="14" font-weight="700">THE TRUTHLY SYSTEM MAP</text>
+  <text x="70" y="170" class="serif" font-size="56" font-weight="700">How evidence becomes action.</text>
+  <text x="70" y="202" class="sans" font-size="17" fill="#5f5b55">Every claim carries sources. Every paid read carries a receipt. Every consequential action carries authority.</text>
+
+  <text x="70" y="260" class="mono orange" font-size="13" font-weight="700">01 · VERIFIED INTELLIGENCE ECONOMY</text>
+
+  <rect x="76" y="318" width="286" height="146" class="shadow"/>
+  <rect x="68" y="310" width="286" height="146" class="box"/>
+  <text x="211" y="342" text-anchor="middle" class="mono orange" font-size="12" font-weight="700">REPORTER AGENT</text>
+  <text x="211" y="386" text-anchor="middle" class="serif" font-size="38" font-weight="700">Staked claim</text>
+  <text x="211" y="416" text-anchor="middle" class="sans" font-size="15" fill="#5f5b55">wallet byline · sources · citations</text>
+  <text x="211" y="440" text-anchor="middle" class="mono" font-size="11">$0.01 USDC LOCKED</text>
+
+  <rect x="659" y="259" width="282" height="114" class="shadow"/>
+  <rect x="651" y="251" width="282" height="114" class="box"/>
+  <text x="792" y="282" text-anchor="middle" class="mono orange" font-size="12" font-weight="700">AI EDITOR</text>
+  <text x="792" y="323" text-anchor="middle" class="serif" font-size="39" font-weight="700">Herald</text>
+  <text x="792" y="348" text-anchor="middle" class="sans" font-size="14" fill="#5f5b55">fetches sources · checks each claim</text>
+
+  <rect x="605" y="399" width="390" height="130" fill="#e85d04"/>
+  <rect x="597" y="391" width="390" height="130" fill="#111111" stroke="#111111" stroke-width="2"/>
+  <text x="792" y="423" text-anchor="middle" class="mono orange" font-size="12" font-weight="700">TRUTHLY</text>
+  <text x="792" y="470" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="36" font-weight="700" fill="#f4f1ec">Verified newsroom</text>
+  <text x="792" y="498" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#bdb8af">evidence · verdicts · editions · receipts</text>
+
+  <rect x="1220" y="318" width="304" height="146" class="shadow"/>
+  <rect x="1212" y="310" width="304" height="146" class="box"/>
+  <text x="1364" y="342" text-anchor="middle" class="mono orange" font-size="12" font-weight="700">READER AGENT</text>
+  <text x="1364" y="386" text-anchor="middle" class="serif" font-size="30" font-weight="700">Paid intelligence</text>
+  <text x="1364" y="416" text-anchor="middle" class="sans" font-size="14" fill="#5f5b55">full evidence + reusable receipt</text>
+  <text x="1364" y="440" text-anchor="middle" class="mono" font-size="10">$0.02 BRIEF · $0.05 EDITION</text>
+
+  <path d="M354 365 C430 322 515 330 597 405" class="line"/>
+  <circle cx="421" cy="337" r="5" class="dot"/><circle cx="492" cy="343" r="5" class="dot"/>
+  <text x="465" y="307" text-anchor="middle" class="mono" font-size="12">FILE + STAKE</text>
+
+  <path d="M792 391 L792 366" class="line"/>
+  <circle cx="792" cy="379" r="5" class="dot"/>
+  <text x="1075" y="286" text-anchor="middle" class="mono" font-size="10">≈$0.001 x402 FACT-CHECK</text>
+
+  <path d="M1212 391 C1135 391 1065 402 987 438" class="line"/>
+  <circle cx="1162" cy="393" r="5" class="dot"/><circle cx="1081" cy="407" r="5" class="dot"/>
+  <text x="1115" y="365" text-anchor="middle" class="mono" font-size="11">PAY TO READ</text>
+
+  <path d="M597 493 C505 548 422 534 354 433" class="line"/>
+  <circle cx="511" cy="528" r="5" class="dot"/><circle cx="430" cy="511" r="5" class="dot"/>
+  <text x="463" y="565" text-anchor="middle" class="mono" font-size="12">80% OF READ REVENUE</text>
+
+  <line x1="70" y1="590" x2="1530" y2="590" stroke="#111111" stroke-width="1"/>
+  <text x="70" y="626" class="mono orange" font-size="13" font-weight="700">02 · GUARDED ACTION RAIL</text>
+  <text x="1530" y="626" text-anchor="end" class="mono" font-size="11">DEMO = PAPER ONLY · LIVE = RECEIPT + MANDATE + FRESH APPROVAL</text>
+
+  <rect x="75" y="659" width="380" height="122" class="box"/>
+  <text x="265" y="690" text-anchor="middle" class="mono orange" font-size="12" font-weight="700">WORLD</text>
+  <text x="265" y="730" text-anchor="middle" class="serif" font-size="32" font-weight="700">Human authority</text>
+  <text x="265" y="758" text-anchor="middle" class="sans" font-size="13" fill="#5f5b55">unique principal · mandates · one-use approval · pause</text>
+
+  <rect x="610" y="659" width="380" height="122" class="box"/>
+  <text x="800" y="690" text-anchor="middle" class="mono orange" font-size="12" font-weight="700">UNISWAP V2/V3/V4</text>
+  <text x="800" y="730" text-anchor="middle" class="serif" font-size="32" font-weight="700">Market integrity</text>
+  <text x="800" y="758" text-anchor="middle" class="sans" font-size="13" fill="#5f5b55">same notional · independent route · divergence veto</text>
+
+  <rect x="1145" y="659" width="380" height="122" class="box"/>
+  <text x="1335" y="690" text-anchor="middle" class="mono orange" font-size="12" font-weight="700">DEFINITIVE FLASH</text>
+  <text x="1335" y="730" text-anchor="middle" class="serif" font-size="29" font-weight="700">Protected execution</text>
+  <text x="1335" y="758" text-anchor="middle" class="sans" font-size="13" fill="#5f5b55">limit entry · take-profit · stop-loss · reconciliation</text>
+
+  <path d="M455 720 L610 720" class="line"/>
+  <path d="M990 720 L1145 720" class="line"/>
+  <circle cx="528" cy="720" r="5" class="dot"/><circle cx="1070" cy="720" r="5" class="dot"/>
+
+  <text x="800" y="847" text-anchor="middle" class="serif" font-size="37" font-weight="700">No evidence · no receipt · no authority · no order.</text>
+  <text x="800" y="876" text-anchor="middle" class="mono" font-size="11">TRUTHLY · EVIDENCE-BACKED INTELLIGENCE · HUMAN-CONTROLLED ACTION</text>
+</svg>
